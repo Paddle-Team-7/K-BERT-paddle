@@ -33,7 +33,7 @@ class BertClassifier(nn.Layer):
         self.pooling = args.pooling
         self.output_layer_1 = nn.Linear(args.hidden_size, args.hidden_size)
         self.output_layer_2 = nn.Linear(args.hidden_size, args.labels_num)
-        self.softmax = nn.LogSoftmax(dim=-1)
+        self.softmax = nn.LogSoftmax(axis=-1)
         self.criterion = nn.NLLLoss()
         self.use_vm = False if args.no_vm else True
         print("[BertClassifier] use visible_matrix: {}".format(self.use_vm))
@@ -62,7 +62,8 @@ class BertClassifier(nn.Layer):
             output = output[:, 0, :]
         output = paddle.tanh(self.output_layer_1(output))
         logits = self.output_layer_2(output)
-        loss = self.criterion(self.softmax(logits.view(-1, self.labels_num)), label.view(-1))
+        #loss = self.criterion(self.softmax(logits.view(-1, self.labels_num)), label.view(-1))
+        loss = self.criterion(self.softmax(paddle.reshape(logits,[-1,self.labels_num])),paddle.reshape(label,[-1]))
         return loss, logits
 
 
@@ -196,10 +197,12 @@ def main():
                              )
 
     # Optimizer options.
+    #parser.add_argument("--stop_gradient",type=bool,default=False)
     parser.add_argument("--learning_rate", type=float, default=2e-5,
                         help="Learning rate.")
     parser.add_argument("--warmup", type=float, default=0.1,
                         help="Warm up value.")
+    parser.add_argument("--weight_decay_rate",type=float,default=0.01,help="none")
 
     # Training options.
     parser.add_argument("--dropout", type=float, default=0.5,
@@ -256,12 +259,12 @@ def main():
     # Load or initialize parameters.
     if args.pretrained_model_path is not None:
         # Initialize with pretrained model.
-        model.load_state_dict(paddle.load(args.pretrained_model_path), strict=False)  
-    else:
-        # Initialize with normal distribution.
-        for n, p in list(model.named_parameters()):
-            if 'gamma' not in n and 'beta' not in n:
-                p.data.normal_(0, 0.02)
+        model.set_state_dict(paddle.load(args.pretrained_model_path))  
+    # else:
+    #     # Initialize with normal distribution.
+    #     for n, p in list(model.named_parameters()):
+    #         if 'gamma' not in n and 'beta' not in n:
+    #             p.data.normal_(0, 0.02)
     
     # Build classification model.
     model = BertClassifier(args, model)
@@ -277,7 +280,7 @@ def main():
     
     # Datset loader.
     def batch_loader(batch_size, input_ids, label_ids, mask_ids, pos_ids, vms):
-        instances_num = input_ids.size()[0]
+        instances_num = input_ids.shape[0]
         for i in range(instances_num // batch_size):
             input_ids_batch = input_ids[i*batch_size: (i+1)*batch_size, :]
             label_ids_batch = label_ids[i*batch_size: (i+1)*batch_size]
@@ -343,7 +346,7 @@ def main():
         vms = [example[4] for example in dataset]
 
         batch_size = args.batch_size
-        instances_num = input_ids.size()[0]
+        instances_num = input_ids.shape[0]
         if is_test:
             print("The number of evaluation instances: ", instances_num)
 
@@ -359,11 +362,11 @@ def main():
                 # vms_batch = vms_batch.long()
                 vms_batch = paddle.to_tensor(vms_batch,dtype="int64")
 
-                input_ids_batch = input_ids_batch.to(device)
-                label_ids_batch = label_ids_batch.to(device)
-                mask_ids_batch = mask_ids_batch.to(device)
-                pos_ids_batch = pos_ids_batch.to(device)
-                vms_batch = vms_batch.to(device)
+                # input_ids_batch = input_ids_batch.to(device)
+                # label_ids_batch = label_ids_batch.to(device)
+                # mask_ids_batch = mask_ids_batch.to(device)
+                # pos_ids_batch = pos_ids_batch.to(device)
+                # vms_batch = vms_batch.to(device)
 
                 with paddle.no_grad():
                     try:
@@ -377,23 +380,27 @@ def main():
                 logits =nn.Softmax(axis=1)(logits)
                 pred = paddle.argmax(logits, axis=1)
                 gold = label_ids_batch
-                for j in range(pred.size()[0]):
+                for j in range(pred.shape[0]):
                     confusion[pred[j], gold[j]] += 1
                 correct += paddle.sum(pred == gold).item()
         
-            if is_test:
-                print("Confusion matrix:")
-                print(confusion)
-                print("Report precision, recall, and f1:")
+            # if is_test:
+            #     print("Confusion matrix:")
+            #     print(confusion)
+            #     print("Report precision, recall, and f1:")
             
-            for i in range(confusion.size()[0]):
-                p = confusion[i,i].item()/confusion[i,:].sum().item()
-                r = confusion[i,i].item()/confusion[:,i].sum().item()
-                f1 = 2*p*r / (p+r)
-                if i == 1:
-                    label_1_f1 = f1
-                print("Label {}: {:.3f}, {:.3f}, {:.3f}".format(i,p,r,f1))
+            # for i in range(confusion.shape[0]):
+            #     p = confusion[i,i].item()/confusion[i,:].sum().item()
+            #     r = confusion[i,i].item()/confusion[:,i].sum().item()
+            #     print(confusion[i,i].item())
+            #     print("p=------",p)
+            #     print("r=------",r)
+            #     f1 = 2*p*r / (p+r)
+            #     if i == 1:
+            #         label_1_f1 = f1
+            #     print("Label {}: {:.3f}, {:.3f}, {:.3f}".format(i,p,r,f1))
             print("Acc. (Correct/Total): {:.4f} ({}/{}) ".format(correct/len(dataset), correct, len(dataset)))
+            print("metrics=",metrics)
             if metrics == 'Acc':
                 return correct/len(dataset)
             elif metrics == 'f1':
@@ -405,11 +412,11 @@ def main():
 
                 vms_batch = paddle.to_tensor(vms_batch,dtype='int64')
 
-                input_ids_batch = input_ids_batch.to(device)
-                label_ids_batch = label_ids_batch.to(device)
-                mask_ids_batch = mask_ids_batch.to(device)
-                pos_ids_batch = pos_ids_batch.to(device)
-                vms_batch = vms_batch.to(device)
+                # input_ids_batch = input_ids_batch.to(device)
+                # label_ids_batch = label_ids_batch.to(device)
+                # mask_ids_batch = mask_ids_batch.to(device)
+                # pos_ids_batch = pos_ids_batch.to(device)
+                # vms_batch = vms_batch.to(device)
 
                 with paddle.no_grad():
                     loss, logits = model(input_ids_batch, label_ids_batch, mask_ids_batch, pos_ids_batch, vms_batch)
@@ -522,11 +529,11 @@ def main():
 
     param_optimizer = list(model.named_parameters())
     no_decay = ['bias', 'gamma', 'beta']
-    optimizer_grouped_parameters = [
-                {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.01},
-                {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.0}
-    ]
-    optimizer = BertAdam(optimizer_grouped_parameters, lr=args.learning_rate, warmup=args.warmup, t_total=train_steps)
+
+    optimizer_grouped_parameters = [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)]
+
+    optimizer = BertAdam(parameters=optimizer_grouped_parameters, learning_rate=args.learning_rate, warmup=args.warmup, t_total=train_steps)
+
 
     total_loss = 0.
     result = 0.0
@@ -535,15 +542,16 @@ def main():
     for epoch in range(1, args.epochs_num+1):
         model.train()
         for i, (input_ids_batch, label_ids_batch, mask_ids_batch, pos_ids_batch, vms_batch) in enumerate(batch_loader(batch_size, input_ids, label_ids, mask_ids, pos_ids, vms)):
-            model.zero_grad()
+            #optimizer.clear_grad()
+            model.clear_gradients()
 
             vms_batch = paddle.to_tensor(vms_batch,dtype='int64')
 
-            input_ids_batch = input_ids_batch.to(device)
-            label_ids_batch = label_ids_batch.to(device)
-            mask_ids_batch = mask_ids_batch.to(device)
-            pos_ids_batch = pos_ids_batch.to(device)
-            vms_batch = vms_batch.to(device)
+            # input_ids_batch = input_ids_batch.to(device)
+            # label_ids_batch = label_ids_batch.to(device)
+            # mask_ids_batch = mask_ids_batch.to(device)
+            # pos_ids_batch = pos_ids_batch.to(device)
+            # vms_batch = vms_batch.to(device)
 
             loss, _ = model(input_ids_batch, label_ids_batch, mask_ids_batch, pos=pos_ids_batch, vm=vms_batch)
             # if torch.cuda.device_count() > 1:
@@ -575,7 +583,7 @@ def main():
     # else:
     #     model.load_state_dict(torch.load(args.output_model_path))
 
-    model.load_state_dict(paddle.load(args.output_model_path))
+    model.set_state_dict(paddle.load(args.output_model_path))
     evaluate(args, True)
 
 
