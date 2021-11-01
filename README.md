@@ -93,8 +93,8 @@ useage: [--pretrained_model_path] - Path to the pre-trained model parameters.
 
 Accuracy (dev/test %) on different dataset:
 
-| Dataset       | Pytorch      | Paddle        |
-| :-----        | :----:       | :----:        |
-| XNLI          | 77.11/77.07  |               |
+| Dataset       | Pytorch        | Paddle         |
+| :-----        | :----:         | :----:         |
+| XNLI          | 77.11 / 77.07  | 77.55 / 76.75  |
 
 
