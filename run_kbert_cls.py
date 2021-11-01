@@ -31,7 +31,9 @@ class BertClassifier(nn.Layer):
         self.encoder = model.encoder
         self.labels_num = args.labels_num
         self.pooling = args.pooling
-        self.output_layer_1 = nn.Linear(args.hidden_size, args.hidden_size)
+
+        ## ------------ ##
+        self.output_layer_1 = nn.Linear(args.hidden_size, args.hidden_size,bias_attr=True)
         self.output_layer_2 = nn.Linear(args.hidden_size, args.labels_num)
         self.softmax = nn.LogSoftmax(axis=-1)
         self.criterion = nn.NLLLoss()
@@ -50,7 +52,8 @@ class BertClassifier(nn.Layer):
         # Encoder.
         if not self.use_vm:
             vm = None
-        output = self.encoder(emb, mask, vm)
+        output = self.encoder(emb, mask, vm)  
+
         # Target.
         if self.pooling == "mean":
             output = paddle.mean(output, axis=1)
@@ -59,11 +62,13 @@ class BertClassifier(nn.Layer):
         elif self.pooling == "last":
             output = output[:, -1, :]
         else:
-            output = output[:, 0, :]
+            output = output[:, 0, :]    
         output = paddle.tanh(self.output_layer_1(output))
+
         logits = self.output_layer_2(output)
         #loss = self.criterion(self.softmax(logits.view(-1, self.labels_num)), label.view(-1))
         loss = self.criterion(self.softmax(paddle.reshape(logits,[-1,self.labels_num])),paddle.reshape(label,[-1]))
+        #print("logits",logits)
         return loss, logits
 
 
@@ -202,7 +207,7 @@ def main():
                         help="Learning rate.")
     parser.add_argument("--warmup", type=float, default=0.1,
                         help="Warm up value.")
-    parser.add_argument("--weight_decay_rate",type=float,default=0.01,help="none")
+    parser.add_argument("--weight_decay_rate",type=float,default=0.5,help="none")
 
     # Training options.
     parser.add_argument("--dropout", type=float, default=0.5,
@@ -264,7 +269,8 @@ def main():
     #     # Initialize with normal distribution.
     #     for n, p in list(model.named_parameters()):
     #         if 'gamma' not in n and 'beta' not in n:
-    #             p.data.normal_(0, 0.02)
+    #             #p.data.normal_(0, 0.02)
+    #             p = paddle.normal(0,0.02)
     
     # Build classification model.
     model = BertClassifier(args, model)
@@ -371,34 +377,22 @@ def main():
                 with paddle.no_grad():
                     try:
                         loss, logits = model(input_ids_batch, label_ids_batch, mask_ids_batch, pos_ids_batch, vms_batch)
+                        #def forward(self, src, label, mask, pos=None, vm=None):
                     except:
                         print(input_ids_batch)
                         print(input_ids_batch.size())
                         print(vms_batch)
                         print(vms_batch.size())
-
+                
                 logits =nn.Softmax(axis=1)(logits)
                 pred = paddle.argmax(logits, axis=1)
                 gold = label_ids_batch
                 for j in range(pred.shape[0]):
                     confusion[pred[j], gold[j]] += 1
-                correct += paddle.sum(pred == gold).item()
-        
-            # if is_test:
-            #     print("Confusion matrix:")
-            #     print(confusion)
-            #     print("Report precision, recall, and f1:")
-            
-            # for i in range(confusion.shape[0]):
-            #     p = confusion[i,i].item()/confusion[i,:].sum().item()
-            #     r = confusion[i,i].item()/confusion[:,i].sum().item()
-            #     print(confusion[i,i].item())
-            #     print("p=------",p)
-            #     print("r=------",r)
-            #     f1 = 2*p*r / (p+r)
-            #     if i == 1:
-            #         label_1_f1 = f1
-            #     print("Label {}: {:.3f}, {:.3f}, {:.3f}".format(i,p,r,f1))
+                #correct += paddle.sum(pred == gold).item()
+                a_correct = paddle.equal(pred,gold)
+                correct += paddle.to_tensor(a_correct,dtype='int32').sum().item()
+
             print("Acc. (Correct/Total): {:.4f} ({}/{}) ".format(correct/len(dataset), correct, len(dataset)))
             print("metrics=",metrics)
             if metrics == 'Acc':
@@ -411,12 +405,6 @@ def main():
             for i, (input_ids_batch, label_ids_batch,  mask_ids_batch, pos_ids_batch, vms_batch) in enumerate(batch_loader(batch_size, input_ids, label_ids, mask_ids, pos_ids, vms)):
 
                 vms_batch = paddle.to_tensor(vms_batch,dtype='int64')
-
-                # input_ids_batch = input_ids_batch.to(device)
-                # label_ids_batch = label_ids_batch.to(device)
-                # mask_ids_batch = mask_ids_batch.to(device)
-                # pos_ids_batch = pos_ids_batch.to(device)
-                # vms_batch = vms_batch.to(device)
 
                 with paddle.no_grad():
                     loss, logits = model(input_ids_batch, label_ids_batch, mask_ids_batch, pos_ids_batch, vms_batch)
@@ -471,8 +459,7 @@ def main():
 
             rank = []
             pred = []
-            print(len(score_list))
-            print(len(label_order))
+
             for i in range(len(score_list)):
                 if len(label_order[i])==1:
                     if label_order[i][0] < len(score_list[i]):
@@ -530,9 +517,24 @@ def main():
     param_optimizer = list(model.named_parameters())
     no_decay = ['bias', 'gamma', 'beta']
 
+    # optimizer_grouped_parameters = [
+    #             {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.01},
+    #             {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.0}
+    # ]
+
+    for n, p in param_optimizer:
+        if not any (nd in n for nd in no_decay):
+            weight_decay_rate = 0.01
+        else:
+            weight_decay_rate = 0.0
+
+
     optimizer_grouped_parameters = [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)]
 
-    optimizer = BertAdam(parameters=optimizer_grouped_parameters, learning_rate=args.learning_rate, warmup=args.warmup, t_total=train_steps)
+    #print(optimizer_grouped_parameters.weight_decay_rate)
+
+    optimizer = BertAdam(parameters=optimizer_grouped_parameters, learning_rate=args.learning_rate, 
+                        warmup=args.warmup, t_total=train_steps, weight_decay_rate = weight_decay_rate)
 
 
     total_loss = 0.

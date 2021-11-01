@@ -5,10 +5,7 @@ See https://github.com/huggingface/pytorch-pretrained-BERT
 """
 
 import math
-#import torch
 import paddle
-from paddle.optimizer import Adam
-#from torch.optim import Optimizer
 from paddle.optimizer import Optimizer
 from collections import defaultdict
 #from torch.nn.utils import clip_grad_norm_
@@ -101,10 +98,12 @@ class BertAdam(Optimizer):
         self.schedule = schedule
         self.learning_rate = learning_rate
 
+        #print("weight decay in optim",weight_decay_rate)
+
     def get_lr(self):
         lr = []
         for param in self._parameter_list:
-            state = self.state[p]
+            state = self.state[param]
             if len(state) == 0:
                 return [0]
             if self.t_total != -1:
@@ -142,7 +141,7 @@ class BertAdam(Optimizer):
                 state['step'] = 0
                 # Exponential moving average of gradient values
                 #state['next_m'] = torch.zeros_like(p.data)
-                state['next_m'] = paddle.zeros_like(paddle.to_tensor(param))
+                state['next_m'] = paddle.zeros_like(param)
                 # Exponential moving average of squared gradient values
                 #state['next_v'] = torch.zeros_like(p.data)
                 state['next_v'] = paddle.zeros_like(param)
@@ -158,11 +157,14 @@ class BertAdam(Optimizer):
             # Decay the first and second moment running average coefficient
             # In-place operations to update the averages at the same time
             #next_m.mul_(beta1).add_(1 - beta1, grad)
-            xa = paddle.multiply(next_m,paddle.to_tensor(beta1))
-            next_m = paddle.add(xa,paddle.to_tensor(1 - beta1), grad_var)
+            # xa = paddle.multiply(next_m,paddle.to_tensor(beta1))
+            # next_m = paddle.add(xa,paddle.to_tensor(1 - beta1), grad_var)
+
+            xa = next_m * paddle.to_tensor(beta1)
+            next_m = xa + paddle.to_tensor(1-beta1)+grad_var
+
             #next_v.mul_(beta2).addcmul_(1 - beta2, grad, grad) # grad*grad*(1 - beta2)+xa
-            xa = paddle.multiply(next_v,paddle.to_tensor(beta2))
-            #next_v = paddle.addmm(xa, grad_var, grad_var, alpha=paddle.to_tensor(1 - beta2), beta=1.0)
+            xa = next_v * paddle.to_tensor(beta2)
             next_v = xa + grad_var * paddle.to_tensor(1 - beta2) * grad_var
 
             update = next_m / (next_v.sqrt() + self.epsilon)
@@ -178,7 +180,7 @@ class BertAdam(Optimizer):
 
             update_with_lr = lr_scheduled * update
             #param.data.add_(-update_with_lr)
-            param = param + -update_with_lr
+            param = param + (-update_with_lr)
 
             state['step'] += 1
 
