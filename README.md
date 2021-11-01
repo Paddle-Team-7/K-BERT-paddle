@@ -13,7 +13,9 @@ PaddlePaddle2.1.2
 ```
 ## Datasets
 
-XNLI
+### XNLI
+
+The Cross-lingual Natural Language Inference (XNLI) corpus is the extension of the Multi-Genre NLI (MultiNLI) corpus to 15 languages. The dataset was created by manually translating the validation and test sets of MultiNLI into each of those 15 languages. The English training set was machine translated for all languages. The dataset is composed of 122k train, 2490 validation and 5010 test examples.
 
 ## Prepare
 
@@ -49,12 +51,11 @@ K-BERT
 └── run_kbert_cls.py
 ```
 
-
 ## K-BERT for text classification
 
 ### Classification example
 
-Run example on Book review with CnDbpedia:
+Run example on XNLI:
 ```sh
 CUDA_VISIBLE_DEVICES='0' nohup python3 -u run_kbert_cls.py \
     --pretrained_model_path ./models/paddle_weight.pdparams \
@@ -64,14 +65,14 @@ CUDA_VISIBLE_DEVICES='0' nohup python3 -u run_kbert_cls.py \
     --dev_path ./datasets/xnli/dev.tsv \
     --test_path ./datasets/xnli/test.tsv \
     --epochs_num 5 --batch_size 32 --kg_name CnDbpedia \
-    --output_model_path ./outputs/kbert_bookreview_CnDbpedia.pdparams \
-    > ./outputs/kbert_bookreview_CnDbpedia.log &
+    --output_model_path ./outputs/kbert_XNLI.pdparams \
+    > ./outputs/kbert_XNLI.log &
 ```
 
 Results:
 ```
-Best accuracy in dev : 88.80%
-Best accuracy in test: 87.69%
+Best accuracy in dev : %
+Best accuracy in test: %
 ```
 
 Options of ``run_kbert_cls.py``:
