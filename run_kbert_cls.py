@@ -3,14 +3,12 @@
   This script provides an k-BERT exmaple for classification.
 """
 import sys
-#import torch
 import paddle
 import json
 import random
 import argparse
 import collections
 import paddle.nn as nn
-#import torch.nn as nn
 from uer.utils.vocab import Vocab
 from uer.utils.constants import *
 from uer.utils.tokenizer import * 
@@ -265,25 +263,12 @@ def main():
     if args.pretrained_model_path is not None:
         # Initialize with pretrained model.
         model.set_state_dict(paddle.load(args.pretrained_model_path))  
-    # else:
-    #     # Initialize with normal distribution.
-    #     for n, p in list(model.named_parameters()):
-    #         if 'gamma' not in n and 'beta' not in n:
-    #             #p.data.normal_(0, 0.02)
-    #             p = paddle.normal(0,0.02)
     
     # Build classification model.
     model = BertClassifier(args, model)
 
     # For simplicity, we use DataParallel wrapper to use multiple GPUs.
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # if torch.cuda.device_count() > 1:
-    #     print("{} GPUs are available. Let's use them.".format(torch.cuda.device_count()))
-    #     #model = nn.DataParallel(model)
-    #     model = paddle.DataParallel(model)
-
-    # model = model.to(device)
-    
+ 
     # Datset loader.
     def batch_loader(batch_size, input_ids, label_ids, mask_ids, pos_ids, vms):
         instances_num = input_ids.shape[0]
@@ -367,12 +352,6 @@ def main():
 
                 # vms_batch = vms_batch.long()
                 vms_batch = paddle.to_tensor(vms_batch,dtype="int64")
-
-                # input_ids_batch = input_ids_batch.to(device)
-                # label_ids_batch = label_ids_batch.to(device)
-                # mask_ids_batch = mask_ids_batch.to(device)
-                # pos_ids_batch = pos_ids_batch.to(device)
-                # vms_batch = vms_batch.to(device)
 
                 with paddle.no_grad():
                     try:
@@ -517,10 +496,10 @@ def main():
     param_optimizer = list(model.named_parameters())
     no_decay = ['bias', 'gamma', 'beta']
 
-    # optimizer_grouped_parameters = [
-    #             {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.01},
-    #             {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.0}
-    # ]
+    optimizer_grouped_parameters = [
+                {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.01},
+                {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.0}
+    ]
 
     for n, p in param_optimizer:
         if not any (nd in n for nd in no_decay):
@@ -531,10 +510,10 @@ def main():
 
     optimizer_grouped_parameters = [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)]
 
-    #print(optimizer_grouped_parameters.weight_decay_rate)
+    # optimizer = BertAdam(parameters=optimizer_grouped_parameters, learning_rate=args.learning_rate, 
+    #                     warmup=args.warmup, t_total=train_steps, weight_decay_rate = weight_decay_rate)
 
-    optimizer = BertAdam(parameters=optimizer_grouped_parameters, learning_rate=args.learning_rate, 
-                        warmup=args.warmup, t_total=train_steps, weight_decay_rate = weight_decay_rate)
+    optimizer = paddle.optimizer.Adam(learning_rate=args.learning_rate, parameters=optimizer_grouped_parameters)
 
 
     total_loss = 0.
@@ -542,22 +521,16 @@ def main():
     best_result = 0.0
     
     for epoch in range(1, args.epochs_num+1):
-        model.train()
+        
         for i, (input_ids_batch, label_ids_batch, mask_ids_batch, pos_ids_batch, vms_batch) in enumerate(batch_loader(batch_size, input_ids, label_ids, mask_ids, pos_ids, vms)):
+            model.train()
             #optimizer.clear_grad()
             model.clear_gradients()
 
             vms_batch = paddle.to_tensor(vms_batch,dtype='int64')
 
-            # input_ids_batch = input_ids_batch.to(device)
-            # label_ids_batch = label_ids_batch.to(device)
-            # mask_ids_batch = mask_ids_batch.to(device)
-            # pos_ids_batch = pos_ids_batch.to(device)
-            # vms_batch = vms_batch.to(device)
-
             loss, _ = model(input_ids_batch, label_ids_batch, mask_ids_batch, pos=pos_ids_batch, vm=vms_batch)
-            # if torch.cuda.device_count() > 1:
-            #     loss = paddle.mean(loss)
+
             total_loss += loss.item()
             if (i + 1) % args.report_steps == 0:
                 print("Epoch id: {}, Training steps: {}, Avg loss: {:.3f}".format(epoch, i+1, total_loss / args.report_steps))
@@ -579,11 +552,6 @@ def main():
 
     # Evaluation phase.
     print("Final evaluation on the test dataset.")
-
-    # if torch.cuda.device_count() > 1:
-    #     model.module.load_state_dict(torch.load(args.output_model_path))
-    # else:
-    #     model.load_state_dict(torch.load(args.output_model_path))
 
     model.set_state_dict(paddle.load(args.output_model_path))
     evaluate(args, True)
