@@ -6,7 +6,7 @@ This project reproduces K-BERT based on paddlepaddle framework. Too much knowled
 
 ### Paper:
 
-[<li>"K-BERT: Enabling Language Representation with Knowledge Graph"</li>](https://aaai.org/Papers/AAAI/2020GB/AAAI-LiuW.5594.pdf)
+[<li>K-BERT: Enabling Language Representation with Knowledge Graph</li>](https://aaai.org/Papers/AAAI/2020GB/AAAI-LiuW.5594.pdf)
 
 ### Reference project：
 
