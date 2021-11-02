@@ -1,0 +1,709 @@
+Vocabulary file line 344 has bad format token
+Vocabulary Size:  21128
+W1101 17:43:47.286377   126 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1101 17:43:47.291577   126 device_context.cc:422] device: 0, cuDNN Version: 7.6.
+[BertClassifier] use visible_matrix: True
+[KnowledgeGraph] Loading spo from /home/aistudio/work/K-BERT-master/brain/kgs/HowNet.spo
+Start training.
+Loading sentences from ./datasets/xnli/train.tsv
+There are 392702 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/392702
+Progress of process 0: 10000/392702
+Progress of process 0: 20000/392702
+Progress of process 0: 30000/392702
+Progress of process 0: 40000/392702
+Progress of process 0: 50000/392702
+Progress of process 0: 60000/392702
+Progress of process 0: 70000/392702
+Progress of process 0: 80000/392702
+Progress of process 0: 90000/392702
+Progress of process 0: 100000/392702
+Progress of process 0: 110000/392702
+Progress of process 0: 120000/392702
+Progress of process 0: 130000/392702
+Progress of process 0: 140000/392702
+Progress of process 0: 150000/392702
+Progress of process 0: 160000/392702
+Progress of process 0: 170000/392702
+Progress of process 0: 180000/392702
+Progress of process 0: 190000/392702
+Progress of process 0: 200000/392702
+Progress of process 0: 210000/392702
+Progress of process 0: 220000/392702
+Progress of process 0: 230000/392702
+Progress of process 0: 240000/392702
+Progress of process 0: 250000/392702
+Progress of process 0: 260000/392702
+Progress of process 0: 270000/392702
+Progress of process 0: 280000/392702
+Progress of process 0: 290000/392702
+Progress of process 0: 300000/392702
+Progress of process 0: 310000/392702
+Progress of process 0: 320000/392702
+Progress of process 0: 330000/392702
+Progress of process 0: 340000/392702
+Progress of process 0: 350000/392702
+Progress of process 0: 360000/392702
+Progress of process 0: 370000/392702
+Progress of process 0: 380000/392702
+Progress of process 0: 390000/392702
+Shuffling dataset
+Trans data to tensor.
+input_ids
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/tensor/creation.py:125: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data.dtype == np.object:
+label_ids
+mask_ids
+pos_ids
+vms
+Batch size:  32
+The number of training instances: 392702
+Epoch id: 1, Training steps: 100, Avg loss: 1.037
+Epoch id: 1, Training steps: 200, Avg loss: 0.902
+Epoch id: 1, Training steps: 300, Avg loss: 0.861
+Epoch id: 1, Training steps: 400, Avg loss: 0.821
+Epoch id: 1, Training steps: 500, Avg loss: 0.809
+Epoch id: 1, Training steps: 600, Avg loss: 0.773
+Epoch id: 1, Training steps: 700, Avg loss: 0.769
+Epoch id: 1, Training steps: 800, Avg loss: 0.757
+Epoch id: 1, Training steps: 900, Avg loss: 0.749
+Epoch id: 1, Training steps: 1000, Avg loss: 0.732
+Epoch id: 1, Training steps: 1100, Avg loss: 0.710
+Epoch id: 1, Training steps: 1200, Avg loss: 0.725
+Epoch id: 1, Training steps: 1300, Avg loss: 0.726
+Epoch id: 1, Training steps: 1400, Avg loss: 0.692
+Epoch id: 1, Training steps: 1500, Avg loss: 0.704
+Epoch id: 1, Training steps: 1600, Avg loss: 0.697
+Epoch id: 1, Training steps: 1700, Avg loss: 0.703
+Epoch id: 1, Training steps: 1800, Avg loss: 0.690
+Epoch id: 1, Training steps: 1900, Avg loss: 0.676
+Epoch id: 1, Training steps: 2000, Avg loss: 0.711
+Epoch id: 1, Training steps: 2100, Avg loss: 0.672
+Epoch id: 1, Training steps: 2200, Avg loss: 0.667
+Epoch id: 1, Training steps: 2300, Avg loss: 0.687
+Epoch id: 1, Training steps: 2400, Avg loss: 0.676
+Epoch id: 1, Training steps: 2500, Avg loss: 0.660
+Epoch id: 1, Training steps: 2600, Avg loss: 0.670
+Epoch id: 1, Training steps: 2700, Avg loss: 0.677
+Epoch id: 1, Training steps: 2800, Avg loss: 0.673
+Epoch id: 1, Training steps: 2900, Avg loss: 0.654
+Epoch id: 1, Training steps: 3000, Avg loss: 0.645
+Epoch id: 1, Training steps: 3100, Avg loss: 0.669
+Epoch id: 1, Training steps: 3200, Avg loss: 0.643
+Epoch id: 1, Training steps: 3300, Avg loss: 0.678
+Epoch id: 1, Training steps: 3400, Avg loss: 0.646
+Epoch id: 1, Training steps: 3500, Avg loss: 0.679
+Epoch id: 1, Training steps: 3600, Avg loss: 0.656
+Epoch id: 1, Training steps: 3700, Avg loss: 0.648
+Epoch id: 1, Training steps: 3800, Avg loss: 0.669
+Epoch id: 1, Training steps: 3900, Avg loss: 0.640
+Epoch id: 1, Training steps: 4000, Avg loss: 0.642
+Epoch id: 1, Training steps: 4100, Avg loss: 0.632
+Epoch id: 1, Training steps: 4200, Avg loss: 0.650
+Epoch id: 1, Training steps: 4300, Avg loss: 0.641
+Epoch id: 1, Training steps: 4400, Avg loss: 0.653
+Epoch id: 1, Training steps: 4500, Avg loss: 0.645
+Epoch id: 1, Training steps: 4600, Avg loss: 0.645
+Epoch id: 1, Training steps: 4700, Avg loss: 0.634
+Epoch id: 1, Training steps: 4800, Avg loss: 0.619
+Epoch id: 1, Training steps: 4900, Avg loss: 0.620
+Epoch id: 1, Training steps: 5000, Avg loss: 0.668
+Epoch id: 1, Training steps: 5100, Avg loss: 0.641
+Epoch id: 1, Training steps: 5200, Avg loss: 0.659
+Epoch id: 1, Training steps: 5300, Avg loss: 0.633
+Epoch id: 1, Training steps: 5400, Avg loss: 0.635
+Epoch id: 1, Training steps: 5500, Avg loss: 0.624
+Epoch id: 1, Training steps: 5600, Avg loss: 0.634
+Epoch id: 1, Training steps: 5700, Avg loss: 0.628
+Epoch id: 1, Training steps: 5800, Avg loss: 0.630
+Epoch id: 1, Training steps: 5900, Avg loss: 0.658
+Epoch id: 1, Training steps: 6000, Avg loss: 0.637
+Epoch id: 1, Training steps: 6100, Avg loss: 0.635
+Epoch id: 1, Training steps: 6200, Avg loss: 0.637
+Epoch id: 1, Training steps: 6300, Avg loss: 0.617
+Epoch id: 1, Training steps: 6400, Avg loss: 0.637
+Epoch id: 1, Training steps: 6500, Avg loss: 0.608
+Epoch id: 1, Training steps: 6600, Avg loss: 0.626
+Epoch id: 1, Training steps: 6700, Avg loss: 0.622
+Epoch id: 1, Training steps: 6800, Avg loss: 0.601
+Epoch id: 1, Training steps: 6900, Avg loss: 0.617
+Epoch id: 1, Training steps: 7000, Avg loss: 0.631
+Epoch id: 1, Training steps: 7100, Avg loss: 0.580
+Epoch id: 1, Training steps: 7200, Avg loss: 0.620
+Epoch id: 1, Training steps: 7300, Avg loss: 0.615
+Epoch id: 1, Training steps: 7400, Avg loss: 0.602
+Epoch id: 1, Training steps: 7500, Avg loss: 0.617
+Epoch id: 1, Training steps: 7600, Avg loss: 0.617
+Epoch id: 1, Training steps: 7700, Avg loss: 0.632
+Epoch id: 1, Training steps: 7800, Avg loss: 0.596
+Epoch id: 1, Training steps: 7900, Avg loss: 0.628
+Epoch id: 1, Training steps: 8000, Avg loss: 0.618
+Epoch id: 1, Training steps: 8100, Avg loss: 0.610
+Epoch id: 1, Training steps: 8200, Avg loss: 0.626
+Epoch id: 1, Training steps: 8300, Avg loss: 0.623
+Epoch id: 1, Training steps: 8400, Avg loss: 0.614
+Epoch id: 1, Training steps: 8500, Avg loss: 0.629
+Epoch id: 1, Training steps: 8600, Avg loss: 0.587
+Epoch id: 1, Training steps: 8700, Avg loss: 0.614
+Epoch id: 1, Training steps: 8800, Avg loss: 0.610
+Epoch id: 1, Training steps: 8900, Avg loss: 0.614
+Epoch id: 1, Training steps: 9000, Avg loss: 0.583
+Epoch id: 1, Training steps: 9100, Avg loss: 0.623
+Epoch id: 1, Training steps: 9200, Avg loss: 0.606
+Epoch id: 1, Training steps: 9300, Avg loss: 0.603
+Epoch id: 1, Training steps: 9400, Avg loss: 0.611
+Epoch id: 1, Training steps: 9500, Avg loss: 0.615
+Epoch id: 1, Training steps: 9600, Avg loss: 0.581
+Epoch id: 1, Training steps: 9700, Avg loss: 0.594
+Epoch id: 1, Training steps: 9800, Avg loss: 0.600
+Epoch id: 1, Training steps: 9900, Avg loss: 0.600
+Epoch id: 1, Training steps: 10000, Avg loss: 0.620
+Epoch id: 1, Training steps: 10100, Avg loss: 0.599
+Epoch id: 1, Training steps: 10200, Avg loss: 0.600
+Epoch id: 1, Training steps: 10300, Avg loss: 0.587
+Epoch id: 1, Training steps: 10400, Avg loss: 0.621
+Epoch id: 1, Training steps: 10500, Avg loss: 0.595
+Epoch id: 1, Training steps: 10600, Avg loss: 0.598
+Epoch id: 1, Training steps: 10700, Avg loss: 0.607
+Epoch id: 1, Training steps: 10800, Avg loss: 0.592
+Epoch id: 1, Training steps: 10900, Avg loss: 0.606
+Epoch id: 1, Training steps: 11000, Avg loss: 0.608
+Epoch id: 1, Training steps: 11100, Avg loss: 0.616
+Epoch id: 1, Training steps: 11200, Avg loss: 0.598
+Epoch id: 1, Training steps: 11300, Avg loss: 0.596
+Epoch id: 1, Training steps: 11400, Avg loss: 0.604
+Epoch id: 1, Training steps: 11500, Avg loss: 0.597
+Epoch id: 1, Training steps: 11600, Avg loss: 0.615
+Epoch id: 1, Training steps: 11700, Avg loss: 0.598
+Epoch id: 1, Training steps: 11800, Avg loss: 0.623
+Epoch id: 1, Training steps: 11900, Avg loss: 0.564
+Epoch id: 1, Training steps: 12000, Avg loss: 0.612
+Epoch id: 1, Training steps: 12100, Avg loss: 0.611
+Epoch id: 1, Training steps: 12200, Avg loss: 0.591
+Start evaluation on dev dataset.
+Loading sentences from ./datasets/xnli/dev.tsv
+There are 2490 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/2490
+Acc. (Correct/Total): 0.7755 (1931/2490) 
+metrics= Acc
+Start evaluation on test dataset.
+Loading sentences from ./datasets/xnli/test.tsv
+There are 5010 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/5010
+The number of evaluation instances:  5010
+Acc. (Correct/Total): 0.7675 (3845/5010) 
+metrics= Acc
+Epoch id: 2, Training steps: 100, Avg loss: 1.021
+Epoch id: 2, Training steps: 200, Avg loss: 0.580
+Epoch id: 2, Training steps: 300, Avg loss: 0.588
+Epoch id: 2, Training steps: 400, Avg loss: 0.573
+Epoch id: 2, Training steps: 500, Avg loss: 0.578
+Epoch id: 2, Training steps: 600, Avg loss: 0.557
+Epoch id: 2, Training steps: 700, Avg loss: 0.556
+Epoch id: 2, Training steps: 800, Avg loss: 0.575
+Epoch id: 2, Training steps: 900, Avg loss: 0.563
+Epoch id: 2, Training steps: 1000, Avg loss: 0.565
+Epoch id: 2, Training steps: 1100, Avg loss: 0.531
+Epoch id: 2, Training steps: 1200, Avg loss: 0.576
+Epoch id: 2, Training steps: 1300, Avg loss: 0.553
+Epoch id: 2, Training steps: 1400, Avg loss: 0.537
+Epoch id: 2, Training steps: 1500, Avg loss: 0.560
+Epoch id: 2, Training steps: 1600, Avg loss: 0.526
+Epoch id: 2, Training steps: 1700, Avg loss: 0.542
+Epoch id: 2, Training steps: 1800, Avg loss: 0.547
+Epoch id: 2, Training steps: 1900, Avg loss: 0.525
+Epoch id: 2, Training steps: 2000, Avg loss: 0.565
+Epoch id: 2, Training steps: 2100, Avg loss: 0.538
+Epoch id: 2, Training steps: 2200, Avg loss: 0.515
+Epoch id: 2, Training steps: 2300, Avg loss: 0.536
+Epoch id: 2, Training steps: 2400, Avg loss: 0.535
+Epoch id: 2, Training steps: 2500, Avg loss: 0.517
+Epoch id: 2, Training steps: 2600, Avg loss: 0.557
+Epoch id: 2, Training steps: 2700, Avg loss: 0.546
+Epoch id: 2, Training steps: 2800, Avg loss: 0.539
+Epoch id: 2, Training steps: 2900, Avg loss: 0.525
+Epoch id: 2, Training steps: 3000, Avg loss: 0.521
+Epoch id: 2, Training steps: 3100, Avg loss: 0.532
+Epoch id: 2, Training steps: 3200, Avg loss: 0.507
+Epoch id: 2, Training steps: 3300, Avg loss: 0.544
+Epoch id: 2, Training steps: 3500, Avg loss: 0.551
+Epoch id: 2, Training steps: 3600, Avg loss: 0.529
+Epoch id: 2, Training steps: 3700, Avg loss: 0.511
+Epoch id: 2, Training steps: 3800, Avg loss: 0.542
+Epoch id: 2, Training steps: 3900, Avg loss: 0.523
+Epoch id: 2, Training steps: 4000, Avg loss: 0.511
+Epoch id: 2, Training steps: 4100, Avg loss: 0.496
+Epoch id: 2, Training steps: 4200, Avg loss: 0.537
+Epoch id: 2, Training steps: 4300, Avg loss: 0.519
+Epoch id: 2, Training steps: 4400, Avg loss: 0.535
+Epoch id: 2, Training steps: 4500, Avg loss: 0.514
+Epoch id: 2, Training steps: 4600, Avg loss: 0.523
+Epoch id: 2, Training steps: 4700, Avg loss: 0.499
+Epoch id: 2, Training steps: 4800, Avg loss: 0.510
+Epoch id: 2, Training steps: 4900, Avg loss: 0.479
+Epoch id: 2, Training steps: 5000, Avg loss: 0.550
+Epoch id: 2, Training steps: 5100, Avg loss: 0.515
+Epoch id: 2, Training steps: 5200, Avg loss: 0.534
+Epoch id: 2, Training steps: 5300, Avg loss: 0.518
+Epoch id: 2, Training steps: 5400, Avg loss: 0.513
+Epoch id: 2, Training steps: 5500, Avg loss: 0.505
+Epoch id: 2, Training steps: 5600, Avg loss: 0.518
+Epoch id: 2, Training steps: 5700, Avg loss: 0.493
+Epoch id: 2, Training steps: 5800, Avg loss: 0.509
+Epoch id: 2, Training steps: 5900, Avg loss: 0.530
+Epoch id: 2, Training steps: 6000, Avg loss: 0.491
+Epoch id: 2, Training steps: 6100, Avg loss: 0.512
+Epoch id: 2, Training steps: 6200, Avg loss: 0.507
+Epoch id: 2, Training steps: 6300, Avg loss: 0.496
+Epoch id: 2, Training steps: 6400, Avg loss: 0.514
+Epoch id: 2, Training steps: 6500, Avg loss: 0.503
+Epoch id: 2, Training steps: 6600, Avg loss: 0.494
+Epoch id: 2, Training steps: 6700, Avg loss: 0.484
+Epoch id: 2, Training steps: 6800, Avg loss: 0.496
+Epoch id: 2, Training steps: 6900, Avg loss: 0.485
+Epoch id: 2, Training steps: 7000, Avg loss: 0.494
+Epoch id: 2, Training steps: 7100, Avg loss: 0.457
+Epoch id: 2, Training steps: 7200, Avg loss: 0.495
+Epoch id: 2, Training steps: 7300, Avg loss: 0.491
+Epoch id: 2, Training steps: 7400, Avg loss: 0.493
+Epoch id: 2, Training steps: 7500, Avg loss: 0.486
+Epoch id: 2, Training steps: 7600, Avg loss: 0.500
+Epoch id: 2, Training steps: 7700, Avg loss: 0.510
+Epoch id: 2, Training steps: 7800, Avg loss: 0.468
+Epoch id: 2, Training steps: 7900, Avg loss: 0.500
+Epoch id: 2, Training steps: 8000, Avg loss: 0.508
+Epoch id: 2, Training steps: 8100, Avg loss: 0.485
+Epoch id: 2, Training steps: 8200, Avg loss: 0.503
+Epoch id: 2, Training steps: 8300, Avg loss: 0.517
+Epoch id: 2, Training steps: 8400, Avg loss: 0.504
+Epoch id: 2, Training steps: 8500, Avg loss: 0.496
+Epoch id: 2, Training steps: 8600, Avg loss: 0.466
+Epoch id: 2, Training steps: 8700, Avg loss: 0.506
+Epoch id: 2, Training steps: 8800, Avg loss: 0.496
+Epoch id: 2, Training steps: 8900, Avg loss: 0.496
+Epoch id: 2, Training steps: 9000, Avg loss: 0.460
+Epoch id: 2, Training steps: 9100, Avg loss: 0.512
+Epoch id: 2, Training steps: 9200, Avg loss: 0.496
+Epoch id: 2, Training steps: 9300, Avg loss: 0.488
+Epoch id: 2, Training steps: 9400, Avg loss: 0.489
+Epoch id: 2, Training steps: 9500, Avg loss: 0.499
+Epoch id: 2, Training steps: 9600, Avg loss: 0.452
+Epoch id: 2, Training steps: 9700, Avg loss: 0.472
+Epoch id: 2, Training steps: 9800, Avg loss: 0.488
+Epoch id: 2, Training steps: 9900, Avg loss: 0.485
+Epoch id: 2, Training steps: 10000, Avg loss: 0.497
+Epoch id: 2, Training steps: 10100, Avg loss: 0.468
+Epoch id: 2, Training steps: 10200, Avg loss: 0.468
+Epoch id: 2, Training steps: 10300, Avg loss: 0.478
+Epoch id: 2, Training steps: 10400, Avg loss: 0.519
+Epoch id: 2, Training steps: 10500, Avg loss: 0.474
+Epoch id: 2, Training steps: 10600, Avg loss: 0.477
+Epoch id: 2, Training steps: 10700, Avg loss: 0.492
+Epoch id: 2, Training steps: 10800, Avg loss: 0.482
+Epoch id: 2, Training steps: 10900, Avg loss: 0.489
+Epoch id: 2, Training steps: 11000, Avg loss: 0.483
+Epoch id: 2, Training steps: 11100, Avg loss: 0.503
+Epoch id: 2, Training steps: 11200, Avg loss: 0.488
+Epoch id: 2, Training steps: 11300, Avg loss: 0.472
+Epoch id: 2, Training steps: 11400, Avg loss: 0.493
+Epoch id: 2, Training steps: 11500, Avg loss: 0.482
+Epoch id: 2, Training steps: 11600, Avg loss: 0.499
+Epoch id: 2, Training steps: 11700, Avg loss: 0.483
+Epoch id: 2, Training steps: 11800, Avg loss: 0.503
+Epoch id: 2, Training steps: 11900, Avg loss: 0.466
+Epoch id: 2, Training steps: 12000, Avg loss: 0.496
+Epoch id: 2, Training steps: 12100, Avg loss: 0.492
+Epoch id: 2, Training steps: 12200, Avg loss: 0.484
+Start evaluation on dev dataset.
+Loading sentences from ./datasets/xnli/dev.tsv
+There are 2490 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/2490
+Acc. (Correct/Total): 0.7731 (1925/2490) 
+metrics= Acc
+Epoch id: 3, Training steps: 100, Avg loss: 0.812
+Epoch id: 3, Training steps: 200, Avg loss: 0.462
+Epoch id: 3, Training steps: 300, Avg loss: 0.480
+Epoch id: 3, Training steps: 400, Avg loss: 0.472
+Epoch id: 3, Training steps: 500, Avg loss: 0.459
+Epoch id: 3, Training steps: 600, Avg loss: 0.449
+Epoch id: 3, Training steps: 700, Avg loss: 0.426
+Epoch id: 3, Training steps: 800, Avg loss: 0.461
+Epoch id: 3, Training steps: 900, Avg loss: 0.456
+Epoch id: 3, Training steps: 1000, Avg loss: 0.447
+Epoch id: 3, Training steps: 1100, Avg loss: 0.433
+Epoch id: 3, Training steps: 1200, Avg loss: 0.444
+Epoch id: 3, Training steps: 1300, Avg loss: 0.440
+Epoch id: 3, Training steps: 1400, Avg loss: 0.423
+Epoch id: 3, Training steps: 1500, Avg loss: 0.468
+Epoch id: 3, Training steps: 1600, Avg loss: 0.414
+Epoch id: 3, Training steps: 1700, Avg loss: 0.433
+Epoch id: 3, Training steps: 1800, Avg loss: 0.436
+Epoch id: 3, Training steps: 1900, Avg loss: 0.422
+Epoch id: 3, Training steps: 2000, Avg loss: 0.451
+Epoch id: 3, Training steps: 2100, Avg loss: 0.438
+Epoch id: 3, Training steps: 2200, Avg loss: 0.402
+Epoch id: 3, Training steps: 2300, Avg loss: 0.418
+Epoch id: 3, Training steps: 2400, Avg loss: 0.428
+Epoch id: 3, Training steps: 2500, Avg loss: 0.413
+Epoch id: 3, Training steps: 2600, Avg loss: 0.451
+Epoch id: 3, Training steps: 2700, Avg loss: 0.434
+Epoch id: 3, Training steps: 2800, Avg loss: 0.424
+Epoch id: 3, Training steps: 2900, Avg loss: 0.413
+Epoch id: 3, Training steps: 3000, Avg loss: 0.409
+Epoch id: 3, Training steps: 3100, Avg loss: 0.426
+Epoch id: 3, Training steps: 3200, Avg loss: 0.395
+Epoch id: 3, Training steps: 3300, Avg loss: 0.425
+Epoch id: 3, Training steps: 3400, Avg loss: 0.425
+Epoch id: 3, Training steps: 3500, Avg loss: 0.431
+Epoch id: 3, Training steps: 3600, Avg loss: 0.435
+Epoch id: 3, Training steps: 3700, Avg loss: 0.412
+Epoch id: 3, Training steps: 3800, Avg loss: 0.435
+Epoch id: 3, Training steps: 3900, Avg loss: 0.416
+Epoch id: 3, Training steps: 4000, Avg loss: 0.399
+Epoch id: 3, Training steps: 4100, Avg loss: 0.392
+Epoch id: 3, Training steps: 4200, Avg loss: 0.438
+Epoch id: 3, Training steps: 4300, Avg loss: 0.426
+Epoch id: 3, Training steps: 4400, Avg loss: 0.436
+Epoch id: 3, Training steps: 4500, Avg loss: 0.408
+Epoch id: 3, Training steps: 4600, Avg loss: 0.415
+Epoch id: 3, Training steps: 4700, Avg loss: 0.385
+Epoch id: 3, Training steps: 4800, Avg loss: 0.407
+Epoch id: 3, Training steps: 4900, Avg loss: 0.376
+Epoch id: 3, Training steps: 5000, Avg loss: 0.460
+Epoch id: 3, Training steps: 5100, Avg loss: 0.404
+Epoch id: 3, Training steps: 5200, Avg loss: 0.438
+Epoch id: 3, Training steps: 5300, Avg loss: 0.411
+Epoch id: 3, Training steps: 5400, Avg loss: 0.416
+Epoch id: 3, Training steps: 5500, Avg loss: 0.398
+Epoch id: 3, Training steps: 5600, Avg loss: 0.424
+Epoch id: 3, Training steps: 5700, Avg loss: 0.386
+Epoch id: 3, Training steps: 5800, Avg loss: 0.428
+Epoch id: 3, Training steps: 5900, Avg loss: 0.417
+Epoch id: 3, Training steps: 6000, Avg loss: 0.384
+Epoch id: 3, Training steps: 6100, Avg loss: 0.428
+Epoch id: 3, Training steps: 6200, Avg loss: 0.388
+Epoch id: 3, Training steps: 6300, Avg loss: 0.383
+Epoch id: 3, Training steps: 6400, Avg loss: 0.419
+Epoch id: 3, Training steps: 6500, Avg loss: 0.410
+Epoch id: 3, Training steps: 6600, Avg loss: 0.390
+Epoch id: 3, Training steps: 6700, Avg loss: 0.374
+Epoch id: 3, Training steps: 6800, Avg loss: 0.386
+Epoch id: 3, Training steps: 6900, Avg loss: 0.385
+Epoch id: 3, Training steps: 7000, Avg loss: 0.393
+Epoch id: 3, Training steps: 7100, Avg loss: 0.370
+Epoch id: 3, Training steps: 7200, Avg loss: 0.398
+Epoch id: 3, Training steps: 7300, Avg loss: 0.393
+Epoch id: 3, Training steps: 7400, Avg loss: 0.378
+Epoch id: 3, Training steps: 7500, Avg loss: 0.386
+Epoch id: 3, Training steps: 7600, Avg loss: 0.388
+Epoch id: 3, Training steps: 7700, Avg loss: 0.418
+Epoch id: 3, Training steps: 7800, Avg loss: 0.380
+Epoch id: 3, Training steps: 7900, Avg loss: 0.416
+Epoch id: 3, Training steps: 8000, Avg loss: 0.407
+Epoch id: 3, Training steps: 8100, Avg loss: 0.386
+Epoch id: 3, Training steps: 8200, Avg loss: 0.411
+Epoch id: 3, Training steps: 8300, Avg loss: 0.424
+Epoch id: 3, Training steps: 8400, Avg loss: 0.406
+Epoch id: 3, Training steps: 8500, Avg loss: 0.393
+Epoch id: 3, Training steps: 8600, Avg loss: 0.385
+Epoch id: 3, Training steps: 8700, Avg loss: 0.408
+Epoch id: 3, Training steps: 8800, Avg loss: 0.401
+Epoch id: 3, Training steps: 8900, Avg loss: 0.387
+Epoch id: 3, Training steps: 9000, Avg loss: 0.360
+Epoch id: 3, Training steps: 9100, Avg loss: 0.415
+Epoch id: 3, Training steps: 9200, Avg loss: 0.414
+Epoch id: 3, Training steps: 9300, Avg loss: 0.379
+Epoch id: 3, Training steps: 9400, Avg loss: 0.400
+Epoch id: 3, Training steps: 9500, Avg loss: 0.408
+Epoch id: 3, Training steps: 9600, Avg loss: 0.364
+Epoch id: 3, Training steps: 9700, Avg loss: 0.371
+Epoch id: 3, Training steps: 9800, Avg loss: 0.383
+Epoch id: 3, Training steps: 9900, Avg loss: 0.389
+Epoch id: 3, Training steps: 10000, Avg loss: 0.398
+Epoch id: 3, Training steps: 10100, Avg loss: 0.369
+Epoch id: 3, Training steps: 10200, Avg loss: 0.387
+Epoch id: 3, Training steps: 10300, Avg loss: 0.367
+Epoch id: 3, Training steps: 10400, Avg loss: 0.421
+Epoch id: 3, Training steps: 10500, Avg loss: 0.376
+Epoch id: 3, Training steps: 10600, Avg loss: 0.387
+Epoch id: 3, Training steps: 10700, Avg loss: 0.407
+Epoch id: 3, Training steps: 10800, Avg loss: 0.384
+Epoch id: 3, Training steps: 10900, Avg loss: 0.415
+Epoch id: 3, Training steps: 11000, Avg loss: 0.381
+Epoch id: 3, Training steps: 11100, Avg loss: 0.388
+Epoch id: 3, Training steps: 11200, Avg loss: 0.397
+Epoch id: 3, Training steps: 11300, Avg loss: 0.391
+Epoch id: 3, Training steps: 11400, Avg loss: 0.397
+Epoch id: 3, Training steps: 11500, Avg loss: 0.392
+Epoch id: 3, Training steps: 11600, Avg loss: 0.415
+Epoch id: 3, Training steps: 11700, Avg loss: 0.388
+Epoch id: 3, Training steps: 11800, Avg loss: 0.401
+Epoch id: 3, Training steps: 11900, Avg loss: 0.356
+Epoch id: 3, Training steps: 12000, Avg loss: 0.397
+Epoch id: 3, Training steps: 12100, Avg loss: 0.395
+Epoch id: 3, Training steps: 12200, Avg loss: 0.387
+Start evaluation on dev dataset.
+Loading sentences from ./datasets/xnli/dev.tsv
+There are 2490 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/2490
+Acc. (Correct/Total): 0.7643 (1903/2490) 
+metrics= Acc
+Epoch id: 4, Training steps: 100, Avg loss: 0.640
+Epoch id: 4, Training steps: 200, Avg loss: 0.371
+Epoch id: 4, Training steps: 300, Avg loss: 0.385
+Epoch id: 4, Training steps: 400, Avg loss: 0.373
+Epoch id: 4, Training steps: 500, Avg loss: 0.384
+Epoch id: 4, Training steps: 600, Avg loss: 0.349
+Epoch id: 4, Training steps: 700, Avg loss: 0.339
+Epoch id: 4, Training steps: 800, Avg loss: 0.356
+Epoch id: 4, Training steps: 900, Avg loss: 0.378
+Epoch id: 4, Training steps: 1000, Avg loss: 0.363
+Epoch id: 4, Training steps: 1100, Avg loss: 0.343
+Epoch id: 4, Training steps: 1200, Avg loss: 0.359
+Epoch id: 4, Training steps: 1300, Avg loss: 0.322
+Epoch id: 4, Training steps: 1400, Avg loss: 0.326
+Epoch id: 4, Training steps: 1500, Avg loss: 0.375
+Epoch id: 4, Training steps: 1600, Avg loss: 0.316
+Epoch id: 4, Training steps: 1700, Avg loss: 0.335
+Epoch id: 4, Training steps: 1800, Avg loss: 0.342
+Epoch id: 4, Training steps: 1900, Avg loss: 0.343
+Epoch id: 4, Training steps: 2000, Avg loss: 0.357
+Epoch id: 4, Training steps: 2100, Avg loss: 0.343
+Epoch id: 4, Training steps: 2200, Avg loss: 0.314
+Epoch id: 4, Training steps: 2300, Avg loss: 0.328
+Epoch id: 4, Training steps: 2400, Avg loss: 0.334
+Epoch id: 4, Training steps: 2500, Avg loss: 0.334
+Epoch id: 4, Training steps: 2600, Avg loss: 0.373
+Epoch id: 4, Training steps: 2700, Avg loss: 0.337
+Epoch id: 4, Training steps: 2800, Avg loss: 0.345
+Epoch id: 4, Training steps: 2900, Avg loss: 0.329
+Epoch id: 4, Training steps: 3000, Avg loss: 0.325
+Epoch id: 4, Training steps: 3100, Avg loss: 0.349
+Epoch id: 4, Training steps: 3200, Avg loss: 0.308
+Epoch id: 4, Training steps: 3300, Avg loss: 0.345
+Epoch id: 4, Training steps: 3400, Avg loss: 0.324
+Epoch id: 4, Training steps: 3500, Avg loss: 0.351
+Epoch id: 4, Training steps: 3600, Avg loss: 0.357
+Epoch id: 4, Training steps: 3700, Avg loss: 0.307
+Epoch id: 4, Training steps: 3800, Avg loss: 0.344
+Epoch id: 4, Training steps: 3900, Avg loss: 0.333
+Epoch id: 4, Training steps: 4000, Avg loss: 0.335
+Epoch id: 4, Training steps: 4100, Avg loss: 0.320
+Epoch id: 4, Training steps: 4200, Avg loss: 0.354
+Epoch id: 4, Training steps: 4300, Avg loss: 0.340
+Epoch id: 4, Training steps: 4400, Avg loss: 0.354
+Epoch id: 4, Training steps: 4500, Avg loss: 0.343
+Epoch id: 4, Training steps: 4600, Avg loss: 0.349
+Epoch id: 4, Training steps: 4700, Avg loss: 0.302
+Epoch id: 4, Training steps: 4800, Avg loss: 0.318
+Epoch id: 4, Training steps: 4900, Avg loss: 0.308
+Epoch id: 4, Training steps: 5000, Avg loss: 0.368
+Epoch id: 4, Training steps: 5100, Avg loss: 0.332
+Epoch id: 4, Training steps: 5200, Avg loss: 0.359
+Epoch id: 4, Training steps: 5300, Avg loss: 0.341
+Epoch id: 4, Training steps: 5400, Avg loss: 0.342
+Epoch id: 4, Training steps: 5500, Avg loss: 0.315
+Epoch id: 4, Training steps: 5600, Avg loss: 0.339
+Epoch id: 4, Training steps: 5700, Avg loss: 0.312
+Epoch id: 4, Training steps: 5800, Avg loss: 0.348
+Epoch id: 4, Training steps: 5900, Avg loss: 0.356
+Epoch id: 4, Training steps: 6000, Avg loss: 0.298
+Epoch id: 4, Training steps: 6100, Avg loss: 0.337
+Epoch id: 4, Training steps: 6200, Avg loss: 0.326
+Epoch id: 4, Training steps: 6300, Avg loss: 0.299
+Epoch id: 4, Training steps: 6400, Avg loss: 0.336
+Epoch id: 4, Training steps: 6500, Avg loss: 0.342
+Epoch id: 4, Training steps: 6600, Avg loss: 0.321
+Epoch id: 4, Training steps: 6700, Avg loss: 0.290
+Epoch id: 4, Training steps: 6800, Avg loss: 0.321
+Epoch id: 4, Training steps: 6900, Avg loss: 0.292
+Epoch id: 4, Training steps: 7000, Avg loss: 0.319
+Epoch id: 4, Training steps: 7100, Avg loss: 0.288
+Epoch id: 4, Training steps: 7200, Avg loss: 0.319
+Epoch id: 4, Training steps: 7300, Avg loss: 0.339
+Epoch id: 4, Training steps: 7400, Avg loss: 0.308
+Epoch id: 4, Training steps: 7500, Avg loss: 0.311
+Epoch id: 4, Training steps: 7600, Avg loss: 0.314
+Epoch id: 4, Training steps: 7700, Avg loss: 0.336
+Epoch id: 4, Training steps: 7800, Avg loss: 0.309
+Epoch id: 4, Training steps: 7900, Avg loss: 0.326
+Epoch id: 4, Training steps: 8000, Avg loss: 0.331
+Epoch id: 4, Training steps: 8100, Avg loss: 0.310
+Epoch id: 4, Training steps: 8200, Avg loss: 0.334
+Epoch id: 4, Training steps: 8300, Avg loss: 0.342
+Epoch id: 4, Training steps: 8400, Avg loss: 0.304
+Epoch id: 4, Training steps: 8500, Avg loss: 0.311
+Epoch id: 4, Training steps: 8600, Avg loss: 0.307
+Epoch id: 4, Training steps: 8700, Avg loss: 0.330
+Epoch id: 4, Training steps: 8800, Avg loss: 0.315
+Epoch id: 4, Training steps: 8900, Avg loss: 0.319
+Epoch id: 4, Training steps: 9000, Avg loss: 0.268
+Epoch id: 4, Training steps: 9100, Avg loss: 0.352
+Epoch id: 4, Training steps: 9200, Avg loss: 0.328
+Epoch id: 4, Training steps: 9300, Avg loss: 0.306
+Epoch id: 4, Training steps: 9400, Avg loss: 0.320
+Epoch id: 4, Training steps: 9500, Avg loss: 0.347
+Epoch id: 4, Training steps: 9600, Avg loss: 0.288
+Epoch id: 4, Training steps: 9700, Avg loss: 0.315
+Epoch id: 4, Training steps: 9800, Avg loss: 0.308
+Epoch id: 4, Training steps: 9900, Avg loss: 0.321
+Epoch id: 4, Training steps: 10000, Avg loss: 0.322
+Epoch id: 4, Training steps: 10100, Avg loss: 0.280
+Epoch id: 4, Training steps: 10200, Avg loss: 0.289
+Epoch id: 4, Training steps: 10300, Avg loss: 0.304
+Epoch id: 4, Training steps: 10400, Avg loss: 0.351
+Epoch id: 4, Training steps: 10500, Avg loss: 0.311
+Epoch id: 4, Training steps: 10600, Avg loss: 0.312
+Epoch id: 4, Training steps: 10700, Avg loss: 0.345
+Epoch id: 4, Training steps: 10800, Avg loss: 0.324
+Epoch id: 4, Training steps: 10900, Avg loss: 0.323
+Epoch id: 4, Training steps: 11000, Avg loss: 0.295
+Epoch id: 4, Training steps: 11100, Avg loss: 0.314
+Epoch id: 4, Training steps: 11200, Avg loss: 0.322
+Epoch id: 4, Training steps: 11300, Avg loss: 0.307
+Epoch id: 4, Training steps: 11400, Avg loss: 0.336
+Epoch id: 4, Training steps: 11500, Avg loss: 0.313
+Epoch id: 4, Training steps: 11600, Avg loss: 0.330
+Epoch id: 4, Training steps: 11700, Avg loss: 0.306
+Epoch id: 4, Training steps: 11800, Avg loss: 0.324
+Epoch id: 4, Training steps: 11900, Avg loss: 0.288
+Epoch id: 4, Training steps: 12000, Avg loss: 0.312
+Epoch id: 4, Training steps: 12100, Avg loss: 0.302
+Epoch id: 4, Training steps: 12200, Avg loss: 0.309
+Start evaluation on dev dataset.
+Loading sentences from ./datasets/xnli/dev.tsv
+There are 2490 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/2490
+Acc. (Correct/Total): 0.7659 (1907/2490) 
+metrics= Acc
+Epoch id: 5, Training steps: 100, Avg loss: 0.539
+Epoch id: 5, Training steps: 200, Avg loss: 0.295
+Epoch id: 5, Training steps: 300, Avg loss: 0.304
+Epoch id: 5, Training steps: 400, Avg loss: 0.306
+Epoch id: 5, Training steps: 500, Avg loss: 0.315
+Epoch id: 5, Training steps: 600, Avg loss: 0.291
+Epoch id: 5, Training steps: 700, Avg loss: 0.269
+Epoch id: 5, Training steps: 800, Avg loss: 0.283
+Epoch id: 5, Training steps: 900, Avg loss: 0.303
+Epoch id: 5, Training steps: 1000, Avg loss: 0.283
+Epoch id: 5, Training steps: 1100, Avg loss: 0.278
+Epoch id: 5, Training steps: 1200, Avg loss: 0.285
+Epoch id: 5, Training steps: 1300, Avg loss: 0.276
+Epoch id: 5, Training steps: 1400, Avg loss: 0.264
+Epoch id: 5, Training steps: 1500, Avg loss: 0.305
+Epoch id: 5, Training steps: 1600, Avg loss: 0.266
+Epoch id: 5, Training steps: 1700, Avg loss: 0.271
+Epoch id: 5, Training steps: 1800, Avg loss: 0.268
+Epoch id: 5, Training steps: 1900, Avg loss: 0.275
+Epoch id: 5, Training steps: 2000, Avg loss: 0.289
+Epoch id: 5, Training steps: 2100, Avg loss: 0.263
+Epoch id: 5, Training steps: 2200, Avg loss: 0.244
+Epoch id: 5, Training steps: 2300, Avg loss: 0.285
+Epoch id: 5, Training steps: 2400, Avg loss: 0.282
+Epoch id: 5, Training steps: 2500, Avg loss: 0.268
+Epoch id: 5, Training steps: 2600, Avg loss: 0.289
+Epoch id: 5, Training steps: 2700, Avg loss: 0.286
+Epoch id: 5, Training steps: 2800, Avg loss: 0.282
+Epoch id: 5, Training steps: 2900, Avg loss: 0.267
+Epoch id: 5, Training steps: 3000, Avg loss: 0.254
+Epoch id: 5, Training steps: 3100, Avg loss: 0.281
+Epoch id: 5, Training steps: 3200, Avg loss: 0.235
+Epoch id: 5, Training steps: 3300, Avg loss: 0.287
+Epoch id: 5, Training steps: 3400, Avg loss: 0.272
+Epoch id: 5, Training steps: 3500, Avg loss: 0.276
+Epoch id: 5, Training steps: 3600, Avg loss: 0.283
+Epoch id: 5, Training steps: 3700, Avg loss: 0.244
+Epoch id: 5, Training steps: 3800, Avg loss: 0.263
+Epoch id: 5, Training steps: 3900, Avg loss: 0.264
+Epoch id: 5, Training steps: 4000, Avg loss: 0.268
+Epoch id: 5, Training steps: 4100, Avg loss: 0.269
+Epoch id: 5, Training steps: 4200, Avg loss: 0.278
+Epoch id: 5, Training steps: 4300, Avg loss: 0.288
+Epoch id: 5, Training steps: 4400, Avg loss: 0.300
+Epoch id: 5, Training steps: 4500, Avg loss: 0.282
+Epoch id: 5, Training steps: 4600, Avg loss: 0.267
+Epoch id: 5, Training steps: 4700, Avg loss: 0.250
+Epoch id: 5, Training steps: 4800, Avg loss: 0.253
+Epoch id: 5, Training steps: 4900, Avg loss: 0.235
+Epoch id: 5, Training steps: 5000, Avg loss: 0.297
+Epoch id: 5, Training steps: 5100, Avg loss: 0.261
+Epoch id: 5, Training steps: 5200, Avg loss: 0.280
+Epoch id: 5, Training steps: 5300, Avg loss: 0.272
+Epoch id: 5, Training steps: 5400, Avg loss: 0.298
+Epoch id: 5, Training steps: 5500, Avg loss: 0.263
+Epoch id: 5, Training steps: 5600, Avg loss: 0.289
+Epoch id: 5, Training steps: 5700, Avg loss: 0.257
+Epoch id: 5, Training steps: 5800, Avg loss: 0.280
+Epoch id: 5, Training steps: 5900, Avg loss: 0.267
+Epoch id: 5, Training steps: 6000, Avg loss: 0.246
+Epoch id: 5, Training steps: 6100, Avg loss: 0.274
+Epoch id: 5, Training steps: 6200, Avg loss: 0.263
+Epoch id: 5, Training steps: 6300, Avg loss: 0.250
+Epoch id: 5, Training steps: 6400, Avg loss: 0.275
+Epoch id: 5, Training steps: 6500, Avg loss: 0.264
+Epoch id: 5, Training steps: 6600, Avg loss: 0.260
+Epoch id: 5, Training steps: 6700, Avg loss: 0.261
+Epoch id: 5, Training steps: 6800, Avg loss: 0.265
+Epoch id: 5, Training steps: 6900, Avg loss: 0.240
+Epoch id: 5, Training steps: 7000, Avg loss: 0.251
+Epoch id: 5, Training steps: 7100, Avg loss: 0.221
+Epoch id: 5, Training steps: 7200, Avg loss: 0.262
+Epoch id: 5, Training steps: 7300, Avg loss: 0.266
+Epoch id: 5, Training steps: 7400, Avg loss: 0.251
+Epoch id: 5, Training steps: 7500, Avg loss: 0.249
+Epoch id: 5, Training steps: 7600, Avg loss: 0.259
+Epoch id: 5, Training steps: 7700, Avg loss: 0.273
+Epoch id: 5, Training steps: 7800, Avg loss: 0.241
+Epoch id: 5, Training steps: 7900, Avg loss: 0.256
+Epoch id: 5, Training steps: 8000, Avg loss: 0.265
+Epoch id: 5, Training steps: 8100, Avg loss: 0.262
+Epoch id: 5, Training steps: 8200, Avg loss: 0.266
+Epoch id: 5, Training steps: 8300, Avg loss: 0.293
+Epoch id: 5, Training steps: 8400, Avg loss: 0.255
+Epoch id: 5, Training steps: 8500, Avg loss: 0.245
+Epoch id: 5, Training steps: 8600, Avg loss: 0.241
+Epoch id: 5, Training steps: 8700, Avg loss: 0.264
+Epoch id: 5, Training steps: 8800, Avg loss: 0.256
+Epoch id: 5, Training steps: 8900, Avg loss: 0.258
+Epoch id: 5, Training steps: 9000, Avg loss: 0.245
+Epoch id: 5, Training steps: 9100, Avg loss: 0.285
+Epoch id: 5, Training steps: 9200, Avg loss: 0.280
+Epoch id: 5, Training steps: 9300, Avg loss: 0.253
+Epoch id: 5, Training steps: 9400, Avg loss: 0.270
+Epoch id: 5, Training steps: 9500, Avg loss: 0.286
+Epoch id: 5, Training steps: 9600, Avg loss: 0.244
+Epoch id: 5, Training steps: 9700, Avg loss: 0.268
+Epoch id: 5, Training steps: 9800, Avg loss: 0.245
+Epoch id: 5, Training steps: 9900, Avg loss: 0.266
+Epoch id: 5, Training steps: 10000, Avg loss: 0.260
+Epoch id: 5, Training steps: 10100, Avg loss: 0.244
+Epoch id: 5, Training steps: 10200, Avg loss: 0.252
+Epoch id: 5, Training steps: 10300, Avg loss: 0.248
+Epoch id: 5, Training steps: 10400, Avg loss: 0.283
+Epoch id: 5, Training steps: 10500, Avg loss: 0.261
+Epoch id: 5, Training steps: 10600, Avg loss: 0.254
+Epoch id: 5, Training steps: 10700, Avg loss: 0.266
+Epoch id: 5, Training steps: 10800, Avg loss: 0.258
+Epoch id: 5, Training steps: 10900, Avg loss: 0.263
+Epoch id: 5, Training steps: 11000, Avg loss: 0.257
+Epoch id: 5, Training steps: 11100, Avg loss: 0.265
+Epoch id: 5, Training steps: 11200, Avg loss: 0.274
+Epoch id: 5, Training steps: 11300, Avg loss: 0.252
+Epoch id: 5, Training steps: 11400, Avg loss: 0.257
+Epoch id: 5, Training steps: 11500, Avg loss: 0.256
+Epoch id: 5, Training steps: 11600, Avg loss: 0.273
+Epoch id: 5, Training steps: 11700, Avg loss: 0.262
+Epoch id: 5, Training steps: 11800, Avg loss: 0.265
+Epoch id: 5, Training steps: 11900, Avg loss: 0.241
+Epoch id: 5, Training steps: 12000, Avg loss: 0.269
+Epoch id: 5, Training steps: 12100, Avg loss: 0.263
+Epoch id: 5, Training steps: 12200, Avg loss: 0.259
+
+Final evaluation on the test dataset.
+Loading sentences from ./datasets/xnli/test.tsv
+There are 5010 sentence in total. We use 1 processes to inject knowledge into sentences.
+Progress of process 0: 0/5010
+The number of evaluation instances:  5010
+Acc. (Correct/Total): 0.7675 (3845/5010) 
+metrics= Acc
