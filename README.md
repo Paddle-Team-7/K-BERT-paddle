@@ -21,6 +21,18 @@ Accuracy (dev / test %) on XNLI dataset:
 | :-----        | :----:         | :----:         |
 | XNLI          | 77.11 / 77.07  | 77.55 / 76.75  |
 
+### note
+
+The training result of reference code are as follows:
+
+| epoch     | dev      | test      |
+| :-----    | :----:   | :----:    |
+| 1         | 76.39    | 75.91     |
+| 2         | 75.22    | 74.53     |
+| 1         | 76.67    | 76.35     |
+| 1         | 74.90    | 74.23     |
+| 1         | 75.10    | 74.15     |
+
 ## 3 Environment
 
 <li>Hardware: GPU, CPU</li>
