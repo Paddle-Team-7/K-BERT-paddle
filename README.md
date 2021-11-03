@@ -81,6 +81,10 @@ useage: [--pretrained_model_path] - Path to the pre-trained model parameters.
         [--kg_name] - The name of knowledge graph, "HowNet", "CnDbpedia" or "Medical".
         [--output_model_path] - Path to the output model.
 ```
+### step3 test
+
+* Download the ``kbert_XNLI.pdparams`` from https://pan.baidu.com/s/1-v4fcmmf9TberpZtv0WQWw 提取码: 95ha
+
 ## 6 Code structure
 
 The directory tree of K-BERT:
