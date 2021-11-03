@@ -47,7 +47,7 @@ The Cross-lingual Natural Language Inference (XNLI) corpus is the extension of t
 
 ## 5 Quick start
 
-### step1 Prepare
+### step1 prepare
 
 * Download the ``paddle_weight.pdparams`` from [here](https://aistudio.baidu.com/aistudio/datasetdetail/114344), and save it to the ``models/`` directory.
 * Download the ``CnDbpedia.spo`` from [here](https://share.weiyun.com/5BvtHyO), and save it to the ``brain/kgs/`` directory.
